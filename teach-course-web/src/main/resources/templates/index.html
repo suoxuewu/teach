@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/layer/layer.js"></script>
+    <style type="text/css">
+        .header
+        {
+            width: 99%;
+            height: 43px;
+            background: #96b97d;
+            line-height: 40px;
+        }
+        .col-sm-2
+        {
+            position: relative;
+            min-height: 1px;
+            padding-right: 0px;
+            padding-left: 0px;
+            top: 0px;
+            left: 0px;
+        }
+        div.col-sm-10
+        {
+            position: relative;
+            min-height: 1px;
+            padding-right: 2px;
+            padding-left: 2px;
+            top: 0px;
+            left: 0px;
+        }
+        h2
+        {
+            margin-top: 0px;
+        }
+        .panel-group
+        {
+            background: #dff0d8;
+        }
+        .panel-default > .panel-heading
+        {
+            color: #333;
+            background-color: #dff0d8;
+            border-color: #ddd;
+        }
+        .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover
+        {
+            color: #333333;
+            background-color: #dff0d8;
+        }
+        a
+        {
+            color: #333333;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var divId = localStorage.getItem("id");
+            $("#" + divId + "").addClass('in');
+            var liId = localStorage.getItem("liId");
+            $("#" + liId + "").addClass('active');
+
+            $(".panel-body ul li a").click(function () {
+                var all_lis = $(this).parents("div").find(".in");
+                var id = all_lis[0].id;
+                var parent = $(this).parent(); // 父节点
+                var liId = parent[0].id;
+                localStorage.setItem("liId", liId);
+                localStorage.setItem("id", id);
+            })
+        })
+    </script>
+
+</head>
+<body>
+<!--上部-->
+<div class="header">
+    <center>
+        <h2>
+            后台管理系统</h2>
+    </center>
+</div>
+
+<!--左侧-->
+<div class="col-md-2">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">学员管理</a></h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="dbdz"><a href="http://127.0.0.1:2001/index">学员列表</a></li>
+                        <li id="ycllr"><a href="http://127.0.0.1:2001/excel">批量开通学员</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">讲师管理</a></h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="jgdx1"><a href="http://127.0.0.1:3001/teacher/index">讲师列表</a></li>
+                        <li id="ghsgl"><a href="http://127.0.0.1:3001/teacher/add">添加讲师</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">专业管理</a></h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="kcgl"><a href="http://127.0.0.1:4001/subject/index">专业课程</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">课程管理</a></h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse ">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="yaopinflow2"><a href="http://127.0.0.1:5001/course/index">课程列表</a></li>
+                        <li id="qyxxwh"><a href="http://127.0.0.1:5001/course/add">添加课程</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">系统管理</a></h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="yhgl"><a href="#">操作员管理</a></li>
+                        <li id="gzbm"><a href="#">工作部门</a></li>
+                        <li id="xtsz2"><a href="#">系统信息维护</a></li>
+                        <li id="changePwd"><a href="#">密码修改</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--右侧-->
+<div class="col-md-10">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="glyphicon glyphicon-th"></i> 数据列表</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline" role="form" style="float:left;" action="/course/condition" id="selectForm">
+                    <div class="form-group has-feedback">
+                        <div class="input-group">
+                            <input class="form-control has-success" type="text" name="title" placeholder="课程标题">
+                        </div>
+                        <div class="input-group">
+                            <select class="form-control" name="statu">
+                                <option selected="selected">请选择状态</option>
+                                <option th:value="${map.key}" th:text="${map.value}" th:each="map:${statusMap}">正常</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <select class="form-control" name="professor">
+                                <option selected="selected">请选择专业</option>
+                                <option th:value="${subject.subjectId}" th:text="${subject.subjectName}" th:each="subject:${subjectList}">正常</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <input class="form-control has-success" type="text" placeholder="开始时间" name="createTime">
+                        </div>
+                        -
+                        <div class="input-group">
+                            <input class="form-control has-success" type="text" placeholder="结束时间" name="endTime">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success" id="select"><i class="glyphicon glyphicon-search"></i> 查询</button>
+                    <button type="button" class="btn btn-danger" ><i class="glyphicon glyphicon-remove"></i> 清空</button>
+                </form>
+                <br>
+                <br>
+                <hr style="clear:both;">
+                <div class="table-responsive">
+                    <table class="table  table-hover">
+                        <thead>
+                        <tr>
+                            <th>课程名</th>
+                            <th>状态</th>
+                            <th>专业</th>
+                            <th>原价</th>
+                            <th>优惠价</th>
+                            <th>课时</th>
+                            <th>销售量</th>
+                            <th>浏览量</th>
+                            <th>创建时间</th>
+                            <th>有效结束时间</th>
+                            <th width="15%">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="course:${pageInfo.list}">
+
+                                <td th:text="${course.courseName}"></td>
+                                <td th:text="${course.isAvaliable == 1?'上架':'下架'}"></td>
+                                <td th:text="${course.subject.subjectName}"></td>
+                                <td th:text="${course.sourcePrice}"></td>
+                                <td th:text="${course.currentPrice}"></td>
+                                <td th:text="${course.lessionNum}"></td>
+                                <td th:text="${course.pageBuycount}"></td>
+                                <td th:text="${course.pageViewcount}"></td>
+                                <td th:text="${#dates.format(course.addTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+                                <td th:if="${course.losetype == 0}" th:text="${#dates.format(course.endTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+                                <td th:if="${course.losetype == 1 }" th:text="${course.endDay}+'天'"></td>
+                                <td>
+                                         <button type="button" class="btn btn-info btn-sm"  th:onclick="'releaseFreeze('+${course.courseId}+')'">章节管理</button>
+                                         &nbsp;&nbsp;
+                                        <button type="button" class="btn btn-warning btn-sm"   th:onclick="'modifyInfo('+${course.courseId}+')'">修改</button>
+                                        &nbsp;&nbsp;
+                                        <button type="button" style="margin-top: 5px" class="btn btn-danger btn-sm"  th:onclick="'releaseFreeze('+${course.courseId}+')'">删除</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                        <tr >
+                            <td colspan="10" align="center">
+                                <div id="Pagination" class="pagination"><!-- 这里显示分页 -->
+                                        <nav aria-label="...">
+                                            <ul class="pagination">
+
+                                                <li th:class="${pageInfo.hasPreviousPage == true ?'':'disabled'}">
+                                                      <span th:if="${pageInfo.hasPreviousPage == true }">
+                                                        <a aria-hidden="true" th:href="@{'/course/index?pageNO='+${pageInfo.pageNum-1}}">&laquo;</a>
+                                                      </span>
+                                                    <span th:if="${pageInfo.hasPreviousPage == false }">
+                                                        <a aria-hidden="true" href="#">&laquo;</a>
+                                                    </span>
+                                                </li>
+
+                                                <li th:each="num:${pageInfo.navigatepageNums}" th:class="${pageInfo.pageNum == num ?'active':''}">
+                                                      <span th:if="${pageInfo.pageNum == num }">
+                                                        <a th:text="${num}" href="#"></a>
+                                                      </span>
+                                                    <span th:if="${pageInfo.pageNum != num }">
+                                                        <a th:text="${num}" th:href="@{'/course/index?pageNO='+${num}}"></a>
+                                                    </span>
+                                                </li>
+
+                                                <li th:class="${pageInfo.hasNextPage == true ?'':'disabled'}">
+                                                      <span th:if="${pageInfo.hasNextPage == true}">
+                                                        <a aria-hidden="true" th:href="@{'/course/index?pageNO='+${pageInfo.pageNum+1}}">&raquo;</a>
+                                                      </span>
+                                                    <span th:if="${pageInfo.hasNextPage == false}">
+                                                        <a aria-hidden="true" href="#">&raquo;</a>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                </div>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script  th:inline="javascript">
+     //表单提交
+    $("#select").click(function () {
+        $("#selectForm").submit();
+    });
+
+    //修改讲师信息  修改后并跳转
+     function modifyInfo(courseId) {
+         var url ="/course/add";
+
+         window.location.href="http://localhost:5001/course/add?courseId="+courseId+"&pageNO="+[[${pageInfo.pageNum}]];
+     }
+    
+
+
+
+
+</script>
+</html>

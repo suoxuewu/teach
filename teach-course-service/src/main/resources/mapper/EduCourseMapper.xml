@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.teach.mapper.EduCourseMapper">
+
+    <select id="selectAll" resultMap="all">
+       SELECT * FROM edu_course
+    </select>
+
+    <resultMap id="all" type="com.teach.bean.EduCourse" autoMapping="true">
+        <!--其他字段自动映射-->
+        <result column="subject_id" property="subjectId"></result>
+        <association property="subject"  column="subject_id" select="com.teach.mapper.SysSubjectMapper.getOne" autoMapping="true">
+
+        </association>
+    </resultMap>
+
+    <select id="selectOne" resultMap="all">
+        SELECT * FROM edu_course WHERE course_id = #{courseId}
+    </select>
+
+</mapper>
+

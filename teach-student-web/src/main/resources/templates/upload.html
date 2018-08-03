@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/XSL/Transform">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/layer/layer.js"></script>
+    <script src="/jquery-form/jquery.form.js"></script>
+    <style type="text/css">
+        .header
+        {
+            width: 99%;
+            height: 43px;
+            background: #96b97d;
+            line-height: 40px;
+        }
+        .col-sm-2
+        {
+            position: relative;
+            min-height: 1px;
+            padding-right: 0px;
+            padding-left: 0px;
+            top: 0px;
+            left: 0px;
+        }
+        div.col-sm-10
+        {
+            position: relative;
+            min-height: 1px;
+            padding-right: 2px;
+            padding-left: 2px;
+            top: 0px;
+            left: 0px;
+        }
+        h2
+        {
+            margin-top: 0px;
+        }
+        .panel-group
+        {
+            background: #dff0d8;
+        }
+        .panel-default > .panel-heading
+        {
+            color: #333;
+            background-color: #dff0d8;
+            border-color: #ddd;
+        }
+        .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover
+        {
+            color: #333333;
+            background-color: #dff0d8;
+        }
+        a
+        {
+            color: #333333;
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var divId = localStorage.getItem("id");
+            $("#" + divId + "").addClass('in');
+            var liId = localStorage.getItem("liId");
+            $("#" + liId + "").addClass('active');
+
+            $(".panel-body ul li a").click(function () {
+                var all_lis = $(this).parents("div").find(".in");
+                var id = all_lis[0].id;
+                var parent = $(this).parent(); // 父节点
+                var liId = parent[0].id;
+                localStorage.setItem("liId", liId);
+                localStorage.setItem("id", id);
+            })
+        })
+    </script>
+
+
+</head>
+<body>
+<!--上部-->
+<div class="header">
+    <center>
+        <h2>
+            后台管理系统</h2>
+    </center>
+</div>
+
+<!--左侧-->
+<div class="col-md-2">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">学员管理</a></h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="dbdz"><a href="http://127.0.0.1:2001/index">学员列表</a></li>
+                        <li id="ycllr"><a href="http://127.0.0.1:2001/excel">批量开通学员</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">讲师管理</a></h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="jgdx1"><a href="http://127.0.0.1:3001/teacher/index">讲师列表</a></li>
+                        <li id="ghsgl"><a href="http://127.0.0.1:3001/teacher/add">添加讲师</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">专业管理</a></h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="kcgl"><a href="http://127.0.0.1:4001/subject/index">专业课程</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">课程管理</a></h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse ">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="yaopinflow2"><a href="http://127.0.0.1:5001/course/index">课程列表</a></li>
+                        <li id="qyxxwh"><a href="http://127.0.0.1:5001/course/add">添加课程</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">系统管理</a></h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li id="yhgl"><a href="#">操作员管理</a></li>
+                        <li id="gzbm"><a href="#">工作部门</a></li>
+                        <li id="xtsz2"><a href="#">系统信息维护</a></li>
+                        <li id="changePwd"><a href="#">密码修改</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--右侧-->
+<div class="col-md-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="glyphicon glyphicon-th"></i> 数据列表</h3>
+        </div>
+        <div class="panel-body">
+
+            <form id="fileSubmit" enctype="multipart/form-data">
+                <label for="wq" type="button" class="btn btn-info">导入excel</label>
+                <input id="wq" type="file" name="file" style="display: none" />
+            </form>
+
+            <br><br>
+
+            <button id="exportExcel" type="button" class="btn btn-info" href="#">导出excel</button>
+
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(":file").change(function () {
+        var options = {
+            success: showResponse,      //提交后的回调函数
+            url: "/importExcel",                 //默认是form的action， 如果申明，则会覆盖
+            type: "post",               //默认是form的method（get or post），如果申明，则会覆盖
+            dataType: "json",           //html(默认), xml, script, json...接受服务端返回的类型
+            timeout: 3000               //限制请求的时间，当请求大于3秒后，跳出请求
+        };
+        $("#fileSubmit").ajaxSubmit(options);
+    });
+
+    function showResponse(result) {
+        if (result == "success"){
+            layer.msg("导出excel成功", {time:1000, icon:6, shift:6});
+        }
+
+    }
+    
+    $("#exportExcel").click(function () {
+        window.location.href="http://localhost:2001/exportExcel";
+    });
+
+
+</script>
+</html>
+
+

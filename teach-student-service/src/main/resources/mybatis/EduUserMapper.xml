@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.teach.service.mapper.EduUserMapper">
+    <insert id="batchSave">
+      INSERT INTO edu_user(mobile,email,password,user_name,show_name,sex,age,create_time,is_avalible,pic_img,banner_url,msg_num,sys_msg_num,last_system_time)
+        VALUES
+      <foreach collection="list" item="user" index="index" separator=",">
+          (#{user.mobile},#{user.email},#{user.password},#{user.userName},#{user.showName},#{user.sex},#{user.age},
+          #{user.createTime},#{user.isAvalible},#{user.picImg},#{user.bannerUrl},
+          #{user.msgNum},#{user.sysMsgNum},#{user.lastSystemTime})
+      </foreach>
+    </insert>
+</mapper>
